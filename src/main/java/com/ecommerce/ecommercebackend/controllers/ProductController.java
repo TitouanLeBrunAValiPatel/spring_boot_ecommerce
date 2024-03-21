@@ -25,14 +25,14 @@ public class ProductController {
     }
 
     // ResponseEntity permit to personalize your httpResponse
-
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping(path = "", consumes = {"*/*"})
     public List<Product> getProducts(){
         return this.productService.getProducts();
 
     }
-
-    @GetMapping(path = "/{id}")
+    @CrossOrigin(origins = "http://localhost:5173")
+    @GetMapping(path = "/{id}", consumes = {"*/*"})
     public ResponseEntity<Product> getProduct(@PathVariable(name = "id") int productId) throws ProductException {
         return ResponseEntity.ok(this.productService.getProduct(productId));
     }
