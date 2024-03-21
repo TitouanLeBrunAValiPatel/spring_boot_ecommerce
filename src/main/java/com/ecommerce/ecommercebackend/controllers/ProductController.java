@@ -29,6 +29,7 @@ public class ProductController {
     @GetMapping(path = "", consumes = {"*/*"})
     public List<Product> getProducts(){
         return this.productService.getProducts();
+
     }
 
     @GetMapping(path = "/{id}")
