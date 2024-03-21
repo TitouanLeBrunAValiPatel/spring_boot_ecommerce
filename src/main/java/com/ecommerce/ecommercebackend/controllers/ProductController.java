@@ -26,9 +26,9 @@ public class ProductController {
 
     // ResponseEntity permit to personalize your httpResponse
 
-    @GetMapping(path = "")
-    public ResponseEntity<List<Product>> getProducts(){
-        return ResponseEntity.ok(this.productService.getProducts());
+    @GetMapping(path = "", consumes = {"*/*"})
+    public List<Product> getProducts(){
+        return this.productService.getProducts();
     }
 
     @GetMapping(path = "/{id}")
