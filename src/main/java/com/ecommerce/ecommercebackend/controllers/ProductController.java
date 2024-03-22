@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping(path = "products/", consumes = APPLICATION_JSON_VALUE)
 public class ProductController {
@@ -31,7 +32,7 @@ public class ProductController {
         return this.productService.getProducts();
     }
 
-    @GetMapping(path = "/{id}")
+    @GetMapping(path = "/{id}", consumes = {"*/*"})
     public ResponseEntity<Product> getProduct(@PathVariable(name = "id") int productId) throws ProductException {
         return ResponseEntity.ok(this.productService.getProduct(productId));
     }
