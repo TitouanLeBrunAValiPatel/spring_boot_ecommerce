@@ -25,13 +25,12 @@ public class ProductService {
         return this.iProductRepository.findAll();
     }
 
-    public Product getProduct(int productId) throws ProductException {
-        Optional<Product> optionalProduct = this.iProductRepository.findById(productId);
-        if (optionalProduct.isPresent()) {
-            return optionalProduct.get();
-        } else {
-            throw new ProductException("Product Not found");
-        }
+/*    Créer une fonction qui permet de trouver 1 produit.
+    nom de la fonction : getProduct()
+    paramètre :  l'id du produit
+    retour : Product
 
-    }
+    Pour aider tu vas avoir besoin des class Optional et ProductException
+    method utilisé pour la class optional : isPresent() return un bool
+*/
 }

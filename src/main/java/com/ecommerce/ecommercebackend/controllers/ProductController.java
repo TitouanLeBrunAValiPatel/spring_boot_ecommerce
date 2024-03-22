@@ -27,10 +27,15 @@ public class ProductController {
         return this.productService.getProducts();
     }
 
+    /*
+        Je veux une route en api/products/{idProduit}
+        nom de la fonction : getProduct()
+        parametre : idProduit
+        retour : Product
 
-    @GetMapping(path = "/{id}")
-    public Product getProduct(@PathVariable(name = "id") int productId) throws ProductException {
-        return this.productService.getProduct(productId);
-    }
+        Pour aider tu vas avoir besoin de la propriete @PathVariable pour récupère le paramètre
+
+     */
+
 
 }
