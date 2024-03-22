@@ -16,7 +16,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping(path = "products/", consumes = APPLICATION_JSON_VALUE)
+@RequestMapping(path = "products/", consumes = {"*/*"})
 public class ProductController {
 
     private final ProductService productService;
@@ -27,12 +27,12 @@ public class ProductController {
 
     // ResponseEntity permit to personalize your httpResponse
 
-    @GetMapping(path = "", consumes = {"*/*"})
+    @GetMapping(path = "")
     public List<Product> getProducts(){
         return this.productService.getProducts();
     }
 
-    @GetMapping(path = "/{id}", consumes = {"*/*"})
+    @GetMapping(path = "/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable(name = "id") int productId) throws ProductException {
         return ResponseEntity.ok(this.productService.getProduct(productId));
     }
